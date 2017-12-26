@@ -2,10 +2,10 @@
 
 namespace HgVersionTests.IntegrationTests
 {
-    [TestFixture, Parallelizable(ParallelScope.All)]
+    [TestFixture, NonParallelizable]
     public class DevelopScenarios
     {
-        [Test]
+        [Test, NonParallelizable]
         public void WhenDevelopHasMultipleCommits_SpecifyExistingCommitId()
         {
             using (var context = new TestVesionContext())
@@ -26,7 +26,7 @@ namespace HgVersionTests.IntegrationTests
             }
         }
         
-        [Test]
+        [Test, NonParallelizable]
         public void WhenDevelopBranchedFromTaggedCommitOnDefaultVersionDoesNotChange()
         {
             using (var context = new TestVesionContext())
@@ -35,6 +35,20 @@ namespace HgVersionTests.IntegrationTests
                 context.WriteTextAndCommit("dummy.txt", "", "init commit");
                 context.MakeTaggedCommit("1.0.0");
                 context.AssertFullSemver("1.0.0");
+            }
+        }
+
+        [Test, NonParallelizable]
+        public void WhenBranchNameHasRUChars_ItIsStillWorking()
+        {
+            using (var context = new TestVesionContext())
+            {
+                var branchName = "одинокая ветка сирени";
+                context.CreateBranch(branchName);
+                context.WriteTextAndCommit("тест.txt", "тест", "тестовый коммит");
+
+                Assert.That(context.CurrentBranch.Name, Is.EqualTo(branchName));
+
             }
         }
     }

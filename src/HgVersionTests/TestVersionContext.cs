@@ -18,15 +18,12 @@ namespace HgVersionTests
         private HgVersionContext _context;
         private IHgRepository _repository;
         
-        static TestVesionContext()
+        public TestVesionContext(bool inited = true)
         {
             // added for solve concurrency problems
             if (!Mercurial.ClientExecutable.CouldLocateClient)
                 throw new MercurialMissingException("The Mercurial command line client could not be located");
-        }
 
-        public TestVesionContext(bool inited = true)
-        {
             _repository = CreateTempRepository(inited)
                 .WithLogger();
         }
@@ -51,7 +48,7 @@ namespace HgVersionTests
         
         public void MakeCommit(string message = null)
         {
-            WriteTextAndCommit("dummy.txt", DateTime.Now.ToLongTimeString(), message ?? "Empty commit");
+            WriteTextAndCommit("dummy.txt", Guid.NewGuid().ToString(), message ?? "Empty commit");
         }
         
         public void CreateBranch(string branch)

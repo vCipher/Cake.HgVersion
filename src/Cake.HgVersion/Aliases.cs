@@ -5,9 +5,9 @@ using Cake.Core.IO;
 using HgVersion;
 using HgVersion.VCS;
 using HgVersion.VersionAssemblyInfoResources;
-using Mercurial;
 using VCSVersion;
 using VCSVersion.Output;
+using Mercurial;
 
 namespace Cake.HgVersion
 {

@@ -38,15 +38,15 @@
     <Reference Include="Cake.Core, Version=0.23.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Cake.Core.0.23.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Mercurial.Net, Version=0.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hg.Net.0.1.3\lib\net461\Mercurial.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VCSVersion, Version=0.1.3.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\VCSVersion.0.1.3\lib\net461\VCSVersion.dll</HintPath>
-    </Reference>
-    <Reference Include="Mercurial.Net, Version=0.1.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Hg.Net.0.1.1\lib\net461\Mercurial.Net.dll</HintPath>
+    <Reference Include="VCSVersion, Version=0.1.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\VCSVersion.0.1.2\lib\net461\VCSVersion.dll</HintPath>
     </Reference>
     <Reference Include="YamlDotNet, Version=4.2.3.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\YamlDotNet.4.2.3\lib\net35\YamlDotNet.dll</HintPath>

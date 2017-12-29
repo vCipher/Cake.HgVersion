@@ -4,8 +4,8 @@ using System.IO;
 using System.Threading;
 using HgVersion;
 using HgVersion.VCS;
-using Mercurial;
 using VCSVersion;
+using Mercurial;
 using VCSVersion.Configuration;
 using VCSVersion.Helpers;
 using VCSVersion.SemanticVersions;
@@ -20,6 +20,10 @@ namespace HgVersionTests
         
         public TestVesionContext(bool inited = true)
         {
+            // added for solve concurrency problems
+            if (!Mercurial.ClientExecutable.CouldLocateClient)
+                throw new MercurialMissingException("The Mercurial command line client could not be located");
+
             _repository = CreateTempRepository(inited)
                 .WithLogger();
         }
